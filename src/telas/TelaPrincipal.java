@@ -75,13 +75,13 @@ public class TelaPrincipal extends JFrame {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				No exp = Expressao.create().transformaEmArvore(campoExpressao.getText(), false);
-				No polonesa = exp;
-				No polonesaReversa = exp;				
+				String polonesa, polonesaReversa;
 				if(exp!=null) {
-					System.out.println(exp.toString() + "_____________");					
-					exp.caminhoPolones(polonesa);
-					System.out.println(polonesa.toString());					
-					exp.caminhoPolonesReversa(polonesaReversa);
+					System.out.println(exp.toString());					
+					polonesa = exp.caminhoPolones(exp);
+					System.out.println("" + polonesa);
+					polonesaReversa =exp.caminhoPolonesReversa(exp);
+					System.out.println("_____________\n" + polonesaReversa);
 
 				}	
 				
