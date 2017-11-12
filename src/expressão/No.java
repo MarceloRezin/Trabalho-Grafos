@@ -84,6 +84,7 @@ public class No {
 		if(no != null){
         	caminhoPolonesReversa(no.esquerdo);
         	caminhoPolonesReversa(no.direito);
+        	
         	//System.out.println(no.getOperacao());
         	expressaor += no.getOperacao();
 		}
