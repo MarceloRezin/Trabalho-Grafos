@@ -45,6 +45,7 @@ public class TelaPrincipal extends JFrame {
 		});
 	}
 
+	
 	/**
 	 * Create the frame.
 	 */
@@ -74,12 +75,19 @@ public class TelaPrincipal extends JFrame {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				No exp = Expressao.create().transformaEmArvore(campoExpressao.getText(), false);
-				
+				No polonesa = exp;
+				No polonesaReversa = exp;				
 				if(exp!=null) {
-					System.out.println(exp.toString());
-				}
+					System.out.println(exp.toString() + "_____________");					
+					exp.caminhoPolones(polonesa);
+					System.out.println(polonesa.toString());					
+					exp.caminhoPolonesReversa(polonesaReversa);
+
+				}	
 				
 				//((x*2)/(5+2))+(2/(5*4))
+				
+				
 			}
 		});
 		
@@ -89,6 +97,8 @@ public class TelaPrincipal extends JFrame {
 		JTextArea campoRepresentação = new JTextArea();
 		campoRepresentação.setEditable(false);
 		campoRepresentação.setFont(new Font("Dialog", Font.PLAIN, 14));
+		campoRepresentação.setText("");		
+
 		
 		JLabel lblNotaoPolonesa = new JLabel("Notação Polonesa:");
 		lblNotaoPolonesa.setFont(new Font("Dialog", Font.BOLD, 14));

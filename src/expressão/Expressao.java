@@ -171,7 +171,9 @@ public class Expressao {
 			}
 		}
 		
+		
 		return primeiro;
+		
 	}
 	
 	public String removeParenteses(List<String> caracteres) {
