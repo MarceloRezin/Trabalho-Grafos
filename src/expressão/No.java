@@ -1,5 +1,6 @@
 package expressão;
 
+import java.lang.reflect.Array;
 import java.util.Set;
 
 import javax.xml.transform.SourceLocator;
@@ -64,27 +65,31 @@ public class No {
 		
 		return "\nRaiz: " + operacao + "\nDireito: " + dir + "\nEsquerdo: " + esq + "\n";
 	}	
+	String expressaop = "";
+	String expressaor = "";
 	
-	public No caminhoPolones(No no){
-		//pŕe-ordem
+	public String caminhoPolones(No no){
 		if(no != null){
-			operacao = no.getOperacao();
-            caminhoPolones(no.esquerdo);
-            caminhoPolones(no.direito);
+			//System.out.println(no.getOperacao());
+			expressaop += no.getOperacao();
+			caminhoPolones(no.esquerdo);
+			caminhoPolones(no.direito);
 
 
         }
-		return no;
+		return expressaop;
 	}
-
-	public No caminhoPolonesReversa(No no) {
+	
+	public String caminhoPolonesReversa(No no) {
 		if(no != null){
         	caminhoPolonesReversa(no.esquerdo);
         	caminhoPolonesReversa(no.direito);
-            operacao = no.getOperacao();
-        }
-		return no;
+        	//System.out.println(no.getOperacao());
+        	expressaor += no.getOperacao();
+		}
+		return expressaor;
 	}
+	
 	
 }
 
