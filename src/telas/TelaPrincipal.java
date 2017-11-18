@@ -80,6 +80,8 @@ public class TelaPrincipal extends JFrame {
 					System.out.println(exp.toString());					
 					polonesa = exp.caminhoPolones(exp);
 					polonesaReversa =exp.caminhoPolonesReversa(exp);
+					//lblNotaoPolonesa.setText("" + polonesa);
+					//lblNotaoPolonesa.setText("" + polonesa);
 
 				}	
 				
@@ -101,7 +103,6 @@ public class TelaPrincipal extends JFrame {
 		
 		JLabel lblNotaoPolonesa = new JLabel("Notação Polonesa:");
 		lblNotaoPolonesa.setFont(new Font("Dialog", Font.BOLD, 14));
-		//lblNotaoPolonesa.setText("" + polonesa);
 		
 		
 		campoPolonesa = new JTextField();
@@ -111,7 +112,7 @@ public class TelaPrincipal extends JFrame {
 		
 		JLabel lblNotaoPolonesaReversa = new JLabel("Notação Polonesa Reversa:");
 		lblNotaoPolonesaReversa.setFont(new Font("Dialog", Font.BOLD, 14));
-		//lblNotaoPolonesaReversa.setText("" + polonesaReversa);
+
 
 		
 		campoPolonesaReversa = new JTextField();
