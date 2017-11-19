@@ -82,14 +82,15 @@ public class TelaPrincipal extends JFrame {
 					polonesaReversa =exp.caminhoPolonesReversa(exp);
 					//lblNotaoPolonesa.setText("" + polonesa);
 					//lblNotaoPolonesa.setText("" + polonesa);
-
+					imprimeArvore(exp);
+	
 				}	
-				
 				
 				//((x*2)/(5+2))+(2/(5*4))
 				
 				
 			}
+			
 		});
 		
 		JLabel lblRepresentaoDarvore = new JLabel("Representação da Árvore");

@@ -90,7 +90,20 @@ public class No {
 		}
 		return expressaor;
 	}
-	
+		
+	String arv;
+	public String imprimeArvore(No no) {
+				
+		if(no != null) {
+			arv = no.getOperacao();
+			arv = "\n /";
+			imprimeArvore(getEsquerdo());
+			arv = "\n \\";
+			imprimeArvore(getDireito());
+		}
+		System.out.println(""+ arv);
+		return "arv";
+	}
 	
 }
 
