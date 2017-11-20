@@ -1,4 +1,4 @@
-package express√£o;
+package express„o;
 
 import java.lang.reflect.Array;
 import java.util.Set;
@@ -83,26 +83,25 @@ public class No {
 	public String caminhoPolonesReversa(No no) {
 		if(no != null){
         	caminhoPolonesReversa(no.esquerdo);
-        	caminhoPolonesReversa(no.direito);
-        	
+        	caminhoPolonesReversa(no.direito);        	
         	//System.out.println(no.getOperacao());
         	expressaor += no.getOperacao();
 		}
 		return expressaor;
 	}
 		
-	String arv;
+	String arv = "";
 	public String imprimeArvore(No no) {
-				
+		
 		if(no != null) {
-			arv = no.getOperacao();
-			arv = "\n /";
-			imprimeArvore(getEsquerdo());
-			arv = "\n \\";
-			imprimeArvore(getDireito());
+			arv += no.operacao;	
+			arv += "\n / \n";
+			imprimeArvore(no.esquerdo);
+			arv += "\n \\  \n";
+			imprimeArvore(no.direito);
 		}
-		System.out.println(""+ arv);
-		return "arv";
+		return arv;
+		
 	}
 	
 }
