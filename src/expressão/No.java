@@ -1,9 +1,15 @@
 package expressão;
 
 import java.lang.reflect.Array;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Iterator;
 import java.util.Set;
+import java.util.Stack;
 
 import javax.xml.transform.SourceLocator;
+
+import telas.TelaPrincipal;
 
 public class No {
 	
@@ -88,20 +94,59 @@ public class No {
         	expressaor += no.getOperacao();
 		}
 		return expressaor;
-	}
-		
-	String arv = "";
+	}	
+	
 	public String imprimeArvore(No no) {
-		
-		if(no != null) {
-			arv += no.operacao;	
-			arv += "\n / \n";
-			imprimeArvore(no.esquerdo);
-			arv += "\n \\  \n";
-			imprimeArvore(no.direito);
-		}
+		Stack<No> globalStack = new Stack<>();
+	      globalStack.push(no) ;
+	      int nBlanks = 10;
+	      boolean isRowEmpty = false;
+	      String arv ="";
+
+	      System.out.println("......................................................");
+	      while(isRowEmpty==false)
+	         {
+	         Stack<No> localStack = new Stack<>();
+	         isRowEmpty = true;
+
+	          for(int j=0; j<nBlanks; j++)
+	        	  arv += " ";
+	        	  System.out.println(" ");
+
+	         while(globalStack.empty()==false){
+	            No temp = globalStack.peek();
+	            globalStack.pop();
+	            if(temp != null){
+	            	
+	            	arv += temp.operacao;
+	            	System.out.print(temp.operacao);  
+	            	localStack.push(temp.esquerdo);
+	            	localStack.push(temp.direito);	               
+
+	               if(temp.esquerdo != null ||  temp.direito != null)
+	                  isRowEmpty = false;
+	               }
+	            else
+	               {
+	               System.out.print("--");
+	               localStack.push(null);
+	               localStack.push(null);
+	               }
+	            for(int j=0; j<nBlanks*2-2; j++)
+	            	arv += " ";
+	               System.out.print(" ");
+	            }  //end while globalStack not empty
+	         System.out.println("");;
+	         nBlanks /=2;
+	         while(localStack.empty()==false)
+	            {
+	            globalStack.push( localStack.peek() );
+	            localStack.pop();
+	            }	         
+	         }
+	      System.out.println("......................................................");    
+	      
 		return arv;
-		
 	}
 	
 }

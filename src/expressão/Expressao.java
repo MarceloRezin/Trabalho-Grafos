@@ -11,7 +11,7 @@
  * no primeiro, b √© de nivel 1 e assim respectivamente.
  */
 
-package express√£o;
+package express„o;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -159,9 +159,9 @@ public class Expressao {
 		}
 		
 		/*
-		 * Se o n√≥ chegar vazio, exitem 2 motivos:
-		 * 1o- N√£o existe expressao no nivel atual e √© preciso remover parenteses
-		 * 2o- Significa que √© necess√°rio avalizar operadores de baixo nivel; 
+		 * Se o n„o chegar vazio, exitem 2 motivos:
+		 * 1o- N„o existe expressao no nivel atual e n„o preciso remover parenteses
+		 * 2o- Significa que n„o necess·rio avalizar operadores de baixo nivel; 
 		 */
 		if(primeiro.getOperacao()==null) {
 			if(menorGrau == false) {

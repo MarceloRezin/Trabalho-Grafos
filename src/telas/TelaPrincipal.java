@@ -93,8 +93,10 @@ public class TelaPrincipal extends JFrame {
 			
 		});
 		
+
 		JLabel lblRepresentaoDarvore = new JLabel("Representação da Árvore");
 		lblRepresentaoDarvore.setFont(new Font("Dialog", Font.BOLD, 14));
+		
 		
 		JTextArea campoRepresentação = new JTextArea();
 		campoRepresentação.setEditable(false);
@@ -196,4 +198,5 @@ public class TelaPrincipal extends JFrame {
 		});
 		panel_1.add(btnLimparTudo);
 	}
+	
 }
