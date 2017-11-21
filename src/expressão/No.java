@@ -99,7 +99,7 @@ public class No {
 	public String imprimeArvore(No no) {
 		Stack<No> globalStack = new Stack<>();
 	      globalStack.push(no) ;
-	      int nBlanks = 10;
+	      int nBlanks = 1;
 	      boolean isRowEmpty = false;
 	      String arv ="";
 
@@ -110,7 +110,7 @@ public class No {
 	         isRowEmpty = true;
 
 	          for(int j=0; j<nBlanks; j++)
-	        	  arv += " ";
+	        	  arv += " \n";
 	        	  System.out.println(" ");
 
 	         while(globalStack.empty()==false){
@@ -128,21 +128,23 @@ public class No {
 	               }
 	            else
 	               {
+	            	arv += "--";
 	               System.out.print("--");
 	               localStack.push(null);
 	               localStack.push(null);
 	               }
-	            for(int j=0; j<nBlanks*2-2; j++)
+	            for(int j=0; j<nBlanks*2; j++)
 	            	arv += " ";
 	               System.out.print(" ");
-	            }  //end while globalStack not empty
-	         System.out.println("");;
-	         nBlanks /=2;
+	            }  
+	         System.out.println("");
+	         //nBlanks /=2;
 	         while(localStack.empty()==false)
 	            {
 	            globalStack.push( localStack.peek() );
 	            localStack.pop();
 	            }	         
+	         arv +="\n";
 	         }
 	      System.out.println("......................................................");    
 	      
