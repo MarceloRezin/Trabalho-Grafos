@@ -1,10 +1,5 @@
 package expressão;
 
-import java.lang.reflect.Array;
-import java.util.Set;
-
-import javax.xml.transform.SourceLocator;
-
 public class No {
 	
 	private No esquerdo;
@@ -47,6 +42,7 @@ public class No {
 		this.operacao = operacao;
 	}
 	
+	@Override
 	public String toString() {
 		String dir;
 		String esq;

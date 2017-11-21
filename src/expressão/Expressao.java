@@ -61,12 +61,12 @@ public class Expressao {
 					}
 				}
 				
-				if(caracteres.get(i).equals(")") && !caracteres.get(i+1).matches("\\+|\\/|\\*|-|\\)")) { //Apenas existe )+ ou )- ou )/ ou )- ou ))
+				if(caracteres.get(i).equals(")") && !caracteres.get(i+1).matches("\\+|\\/|\\*|-|\\)")) { //Apenas existe )+ ou )- ou )/ ou )* ou )- ou ))
 					System.out.println("Erro 05");
 					return false;
 				}
 				
-				if(caracteres.get(i).matches("\\d|[a-zA-Z]") && !caracteres.get(i+1).matches("\\+|\\/|\\*|-|\\)")) { //Apenas existe numero ou letra seguido de + ou - ou * ou / ou )
+				if(caracteres.get(i).matches("\\d|[a-zA-Z]|\\)") && !caracteres.get(i+1).matches("\\+|\\/|\\*|-|\\)|\\d|[a-zA-Z]|")) { //Apenas existe numero letra ou ) seguido de + ou - ou * ou / ou ) ou outro numero/letra
 					System.out.println("Erro 06");
 					return false;
 				}

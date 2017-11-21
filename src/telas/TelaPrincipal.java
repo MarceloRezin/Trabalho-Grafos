@@ -25,7 +25,7 @@ import expressão.No;
 public class TelaPrincipal extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField campoExpressao;
+	public JTextField campoExpressao;
 	private JTextField campoPolonesa;
 	private JTextField campoPolonesaReversa;
 
@@ -75,20 +75,16 @@ public class TelaPrincipal extends JFrame {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				No exp = Expressao.create().transformaEmArvore(campoExpressao.getText(), false);
-				String polonesa, polonesaReversa;
+				String polonesa;
+				String polonesaReversa;
 				if(exp!=null) {
 					System.out.println(exp.toString());					
 					polonesa = exp.caminhoPolones(exp);
 					polonesaReversa =exp.caminhoPolonesReversa(exp);
-					//lblNotaoPolonesa.setText("" + polonesa);
-					//lblNotaoPolonesa.setText("" + polonesa);
+					campoPolonesa.setText(polonesa);
+					campoPolonesaReversa.setText(polonesaReversa);
 
 				}	
-				
-				
-				//((x*2)/(5+2))+(2/(5*4))
-				
-				
 			}
 		});
 		
@@ -181,7 +177,14 @@ public class TelaPrincipal extends JFrame {
 		});
 		panel_1.add(btnSair);
 		
+		TelaPrincipal tp = this;
+		
 		JButton btnAjuda = new JButton("AJUDA");
+		btnAjuda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new TelaAjuda(tp).setVisible(true);
+			}
+		});
 		panel_1.add(btnAjuda);
 		
 		JButton btnLimparTudo = new JButton("LIMPAR TUDO");
