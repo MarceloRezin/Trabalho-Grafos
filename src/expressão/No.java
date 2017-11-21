@@ -91,46 +91,40 @@ public class No {
 	public String imprimeArvore(No no) {
 		Stack<No> globalStack = new Stack<>();
 	      globalStack.push(no) ;
-	      int nBlanks = 1;
-	      boolean isRowEmpty = false;
+	      int nQuebraLinha = 1;
+	      boolean isLinhaVazia = false;
 	      String arv ="";
 
-	      System.out.println("......................................................");
-	      while(isRowEmpty==false)
+	      while(isLinhaVazia==false)
 	         {
 	         Stack<No> localStack = new Stack<>();
-	         isRowEmpty = true;
+	         isLinhaVazia = true;
 
-	          for(int j=0; j<nBlanks; j++)
+	          for(int j=0; j<nQuebraLinha; j++) {
 	        	  arv += " \n";
-	        	  System.out.println(" ");
-
+	          }
+	          
 	         while(globalStack.empty()==false){
-	            No temp = globalStack.peek();
+	            No temp = globalStack.peek(); //Armazena o topo da pilha
 	            globalStack.pop();
 	            if(temp != null){
 	            	
-	            	arv += temp.operacao;
-	            	System.out.print(temp.operacao);  
+	            	arv += temp.operacao; 
 	            	localStack.push(temp.esquerdo);
 	            	localStack.push(temp.direito);	               
 
 	               if(temp.esquerdo != null ||  temp.direito != null)
-	                  isRowEmpty = false;
+	                  isLinhaVazia = false;
 	               }
-	            else
-	               {
+	            else{
 	            	arv += "--";
-	               System.out.print("--");
 	               localStack.push(null);
 	               localStack.push(null);
-	               }
-	            for(int j=0; j<nBlanks*2; j++)
+	              }
+	            for(int j=0; j<nQuebraLinha*2; j++)
 	            	arv += " ";
-	               System.out.print(" ");
-	            }  
-	         System.out.println("");
-	         //nBlanks /=2;
+	            }
+	         
 	         while(localStack.empty()==false)
 	            {
 	            globalStack.push( localStack.peek() );

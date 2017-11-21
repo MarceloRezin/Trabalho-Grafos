@@ -29,7 +29,7 @@ public class TelaPrincipal extends JFrame {
 	public JTextField campoExpressao;
 	private JTextField campoPolonesa;
 	private JTextField campoPolonesaReversa;
-	
+	private JTextArea campoRepresentação;
 
 	/**
 	 * Launch the application.
@@ -83,9 +83,8 @@ public class TelaPrincipal extends JFrame {
 					
 					campoPolonesa.setText(exp.caminhoPolones(exp));
 					campoPolonesaReversa.setText(exp.caminhoPolonesReversa(exp));
+					campoRepresentação.setText(exp.imprimeArvore(exp));
 					
-					String arvore = exp.imprimeArvore(exp);
-
 				}					
 				
 				//((x*2)/(5+2))+(2/(5*4))
@@ -99,7 +98,7 @@ public class TelaPrincipal extends JFrame {
 		lblRepresentaoDarvore.setFont(new Font("Dialog", Font.BOLD, 14));
 		
 		
-		JTextArea campoRepresentação = new JTextArea();
+		campoRepresentação = new JTextArea();
 		campoRepresentação.setEditable(false);
 		campoRepresentação.setFont(new Font("Dialog", Font.PLAIN, 14));				
 		
@@ -135,16 +134,18 @@ public class TelaPrincipal extends JFrame {
 						.addComponent(lblInformeAExpresso)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(campoRepresentação, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(9)
+									.addComponent(campoRepresentação, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE))
 								.addComponent(lblRepresentaoDarvore))
 							.addGap(18)
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(campoPolonesaReversa)
+								.addComponent(campoPolonesaReversa, 257, 257, 257)
 								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
 									.addComponent(lblNotaoPolonesaReversa)
 									.addComponent(lblNotaoPolonesa)
 									.addComponent(campoPolonesa, 257, 257, Short.MAX_VALUE)))))
-					.addContainerGap(51, Short.MAX_VALUE))
+					.addContainerGap(42, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -168,7 +169,7 @@ public class TelaPrincipal extends JFrame {
 							.addComponent(lblNotaoPolonesaReversa)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(campoPolonesaReversa, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(48, Short.MAX_VALUE))
+					.addContainerGap(23, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		
@@ -205,5 +206,4 @@ public class TelaPrincipal extends JFrame {
 		});
 		panel_1.add(btnLimparTudo);
 	}
-	
 }
