@@ -159,9 +159,9 @@ public class Expressao {
 		}
 		
 		/*
-		 * Se o nó chegar vazio, exitem 2 motivos:
-		 * 1o- Não existe expressao no nivel atual e é preciso remover parenteses
-		 * 2o- Significa que é necessário avalizar operadores de baixo nivel; 
+		 * Se o n�o chegar vazio, exitem 2 motivos:
+		 * 1o- N�o existe expressao no nivel atual e n�o preciso remover parenteses
+		 * 2o- Significa que n�o necess�rio avalizar operadores de baixo nivel; 
 		 */
 		if(primeiro.getOperacao()==null) {
 			if(menorGrau == false) {

@@ -23,11 +23,13 @@ import expressão.No;
 
 @SuppressWarnings("serial")
 public class TelaPrincipal extends JFrame {
-
+	
+	public String arvore;
 	private JPanel contentPane;
 	public JTextField campoExpressao;
 	private JTextField campoPolonesa;
 	private JTextField campoPolonesaReversa;
+	
 
 	/**
 	 * Launch the application.
@@ -71,31 +73,36 @@ public class TelaPrincipal extends JFrame {
 		campoExpressao.setFont(new Font("Dialog", Font.PLAIN, 14));
 		campoExpressao.setColumns(10);
 		
-		JButton btnOk = new JButton("OK");
+		
+		JButton btnOk = new JButton("OK");		
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				No exp = Expressao.create().transformaEmArvore(campoExpressao.getText(), false);
-				String polonesa;
-				String polonesaReversa;
+				
 				if(exp!=null) {
-					System.out.println(exp.toString());					
-					polonesa = exp.caminhoPolones(exp);
-					polonesaReversa =exp.caminhoPolonesReversa(exp);
-					campoPolonesa.setText(polonesa);
-					campoPolonesaReversa.setText(polonesaReversa);
+					
+					campoPolonesa.setText(exp.caminhoPolones(exp));
+					campoPolonesaReversa.setText(exp.caminhoPolonesReversa(exp));
+					
+					String arvore = exp.imprimeArvore(exp);
 
-				}	
+				}					
+				
+				//((x*2)/(5+2))+(2/(5*4))
+				
 			}
+			
 		});
 		
+
 		JLabel lblRepresentaoDarvore = new JLabel("Representação da Árvore");
 		lblRepresentaoDarvore.setFont(new Font("Dialog", Font.BOLD, 14));
 		
+		
 		JTextArea campoRepresentação = new JTextArea();
 		campoRepresentação.setEditable(false);
-		campoRepresentação.setFont(new Font("Dialog", Font.PLAIN, 14));
-		campoRepresentação.setText("");		
-
+		campoRepresentação.setFont(new Font("Dialog", Font.PLAIN, 14));				
+		
 		
 		JLabel lblNotaoPolonesa = new JLabel("Notação Polonesa:");
 		lblNotaoPolonesa.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -198,4 +205,5 @@ public class TelaPrincipal extends JFrame {
 		});
 		panel_1.add(btnLimparTudo);
 	}
+	
 }
