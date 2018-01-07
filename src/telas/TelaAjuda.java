@@ -22,7 +22,7 @@ public class TelaAjuda extends JFrame {
 	
 	public TelaAjuda(TelaPrincipal tp) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 478, 513);
+		setBounds(100, 100, 478, 597);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -38,11 +38,12 @@ public class TelaAjuda extends JFrame {
 				+ "<p>Os resultados são mostrados nos campos abaixo.</p>"
 				+ "<p />"
 				+ "<p>-Operadores permitidos: <b>+</b>, <b>-</b>, <b>/</b> e <b>*</b>.</p>"
-				+ "<p>-Operandos permitidos: <b>números</b> e <b>letras</b> positivos e nagativos.</p>"
+				+ "<p>-Operandos permitidos: <b>números inteiros</b> e <b>letras</b> positivas ou nagativas.</p>"
 				+ "<p>-A ordem das operações é definida <b>apenas por parênteses</b>.</p>"
+				+ "<p>-Você dever definir a ordem necessária por <b>parênteses</b>.</p>"
 				+ "<p>-Números negativos <b>não necessitam de parênteses</b>.</p>"
 				+ "<p>-Números positivos <b>não necessitam do sinal +</b>.</p>"
-				+ "<p>-Você pode ultizar quantos espaços <b>achar necessário</b>.</p>"
+				+ "<p>-Você pode ultizar quantos espaços ou parênteses <b>achar necessário</b>.</p>"
 				+ "<p />"
 				+ "<p>Exemplos:</p>"
 				+ "<html>");
@@ -98,6 +99,12 @@ public class TelaAjuda extends JFrame {
 		panel_1.add(verticalStrut);
 		
 		JButton btnOk = new JButton("< Voltar");
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tp.setVisible(true);
+				dispose();
+			}
+		});
 		contentPane.add(btnOk, BorderLayout.SOUTH);
 	}
 

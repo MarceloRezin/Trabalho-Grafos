@@ -7,6 +7,8 @@ public class No {
 	private No esquerdo;
 	private No direito;
 	private String operacao;
+	private String expressaop = "";
+	private String expressaor = "";
 	
 	public No() {
 		this.esquerdo = null;
@@ -44,31 +46,8 @@ public class No {
 		this.operacao = operacao;
 	}
 	
-	@Override
-	public String toString() {
-		String dir;
-		String esq;
-		
-		if(direito == null) {
-			dir = "nulo";
-		}else {
-			dir = direito.toString();
-		}
-		
-		if(esquerdo == null) {
-			esq = "nulo";
-		}else {
-			esq = esquerdo.toString();
-		}
-		
-		return "\nRaiz: " + operacao + "\nDireito: " + dir + "\nEsquerdo: " + esq + "\n";
-	}	
-	String expressaop = "";
-	String expressaor = "";
-	
 	public String caminhoPolones(No no){
 		if(no != null){
-			//System.out.println(no.getOperacao());
 			expressaop += no.getOperacao();
 			caminhoPolones(no.esquerdo);
 			caminhoPolones(no.direito);
@@ -81,8 +60,7 @@ public class No {
 	public String caminhoPolonesReversa(No no) {
 		if(no != null){
         	caminhoPolonesReversa(no.esquerdo);
-        	caminhoPolonesReversa(no.direito);        	
-        	//System.out.println(no.getOperacao());
+        	caminhoPolonesReversa(no.direito);
         	expressaor += no.getOperacao();
 		}
 		return expressaor;
@@ -132,8 +110,6 @@ public class No {
 	            }	         
 	         arv +="\n";
 	         }
-	      System.out.println("......................................................");    
-	      
 		return arv;
 	}
 	

@@ -46,7 +46,6 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 	}
-
 	
 	/**
 	 * Create the frame.
@@ -84,11 +83,7 @@ public class TelaPrincipal extends JFrame {
 					campoPolonesa.setText(exp.caminhoPolones(exp));
 					campoPolonesaReversa.setText(exp.caminhoPolonesReversa(exp));
 					campoRepresentação.setText(exp.imprimeArvore(exp));
-					
-				}					
-				
-				//((x*2)/(5+2))+(2/(5*4))
-				
+				}						
 			}
 			
 		});

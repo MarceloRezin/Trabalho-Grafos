@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class Expressao {
 	
 	public Expressao() {}
@@ -33,7 +35,7 @@ public class Expressao {
 		boolean resultado = inicio && fim;
 		
 		if(!resultado) {
-			System.out.println("Erro 01");
+			JOptionPane.showMessageDialog(null, "A expresssão começa ou termina de forma errada!", "Erro", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 		
@@ -45,29 +47,29 @@ public class Expressao {
 			
 			for (int i=0; i<caracteres.size()-1; i++) {
 				if(caracteres.get(i).matches("\\(|-") && caracteres.get(i+1).matches("\\+|\\/|\\*|\\)")) { // Não pode existir (+ ou (/ ou (* ou () ou -+ ou -/ ou -* ou -)
-					System.out.println("Erro 02");
+					JOptionPane.showMessageDialog(null, "Existe um caracter não válido junto a um parênteses!", "Erro", JOptionPane.ERROR_MESSAGE);
 					return false;
 				}
 				
 				if(caracteres.get(i).matches("\\+|\\/|\\*|-") && !caracteres.get(i+1).matches("\\(|\\d|[a-zA-Z]|-")) { //Apenas existe operadores com numeros ou letras ou - ou (
-					System.out.println("Erro 03");
+					JOptionPane.showMessageDialog(null, "Existe um caracter não válido após um operador!", "Erro", JOptionPane.ERROR_MESSAGE);
 					return false;
 				}
 				
 				if(i < caracteres.size()-2) {
 					if(caracteres.get(i).equals("-") && caracteres.get(i+1).equals("-") && !caracteres.get(i+2).matches("\\d|[a-zA-Z]")) { //Apenas existe --numero ou --letra 
-						System.out.println("Erro 04");
+						JOptionPane.showMessageDialog(null, "O único operador que pode ser repetido 2 vezes é o de menos", "Erro", JOptionPane.ERROR_MESSAGE);
 						return false;
 					}
 				}
 				
 				if(caracteres.get(i).equals(")") && !caracteres.get(i+1).matches("\\+|\\/|\\*|-|\\)")) { //Apenas existe )+ ou )- ou )/ ou )* ou )- ou ))
-					System.out.println("Erro 05");
+					JOptionPane.showMessageDialog(null, "Existe um caracter não válido após um parênteses!", "Erro", JOptionPane.ERROR_MESSAGE);
 					return false;
 				}
 				
 				if(caracteres.get(i).matches("\\d|[a-zA-Z]|\\)") && !caracteres.get(i+1).matches("\\+|\\/|\\*|-|\\)|\\d|[a-zA-Z]|")) { //Apenas existe numero letra ou ) seguido de + ou - ou * ou / ou ) ou outro numero/letra
-					System.out.println("Erro 06");
+					JOptionPane.showMessageDialog(null, "Existe um caracter não válido após um parênteses!", "Erro", JOptionPane.ERROR_MESSAGE);
 					return false;
 				}
 				
@@ -159,9 +161,9 @@ public class Expressao {
 		}
 		
 		/*
-		 * Se o n�o chegar vazio, exitem 2 motivos:
-		 * 1o- N�o existe expressao no nivel atual e n�o preciso remover parenteses
-		 * 2o- Significa que n�o necess�rio avalizar operadores de baixo nivel; 
+		 * Se o nao chegar vazio, exitem 2 motivos:
+		 * 1o- Nao existe expressao no nivel atual e nao preciso remover parenteses
+		 * 2o- Significa que nao necessario avalizar operadores de baixo nivel; 
 		 */
 		if(primeiro.getOperacao()==null) {
 			if(menorGrau == false) {
